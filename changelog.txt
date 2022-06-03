@@ -1,0 +1,9 @@
+# Change log
+
+1. Move existing project in to a seperate directory
+
+Start clean.  This isn't a big project and will make it easy for us to create
+an empty spring project.  We can then bring in the cake object in to the new
+project and build out the rest of the service from there.
+
+
