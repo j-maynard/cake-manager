@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Cake Manger: Home</title>
+    <!--/*/ <th:block th:include="template.html :: headerfiles">
+        </th:block> /*/-->
+</head>
+<body>
+    <div class="container">
+        <div class="center-block">
+            <div th:insert="template.html :: header"> </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Add a new cake</h1>
+                    <p class="lead">This is the frontend to an example spring boot mvc application.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <form action="#" th:action="@{/addcake}" th:object="${createCakeDto}" method="post" class="form-horizontal">
+                    <div class="form-group" th:classappend="${#fields.errors('title').size() > 0 ? 'has-warning' : 'has-validation'}">
+                        <label for="title" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" th:field="*{title}" class="form-control" placeholder="Title" />
+                            <span th:each="err : ${#fields.errors('title')}" th:text="${err}" class="help-block" />
+                        </div>
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.errors('description').size() > 0 ? 'has-warning' : 'has-validation'}">
+                        <label for="description" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" th:field="*{description}" class="form-control" placeholder="Description" />
+                            <span th:each="err : ${#fields.errors('description')}" th:text="${err}" class="help-block" />
+                        </div>
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.errors('image').size() > 0 ? 'has-warning' : 'has-validation'}">
+                        <label for="image" class="col-sm-2 control-label">Image</label>
+                        <div class="col-sm-10">
+                            <input type="text" th:field="*{image}" class="form-control" placeholder="Image" />
+                            <span th:each="err : ${#fields.errors('image')}" th:text="${err}" class="help-block" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-success btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div th:replace="template.html :: footer"></div>
+        </div>
+    </div>
+</body>
+</html>

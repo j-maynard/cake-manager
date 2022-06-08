@@ -1,5 +1,4 @@
-Cake Manager Micro Service (fictitious)
-=======================================
+# Cake Manager Micro Service (fictitious)
 
 A summer intern started on this project but never managed to get it finished.
 The developer assured us that some of the above is complete, but at the moment accessing the /cakes endpoint
@@ -26,8 +25,7 @@ Bonus points:
 * Containerisation
 
 
-Original Project Info
-=====================
+# Original Project Info
 
 To run a server locally execute the following command:
 
@@ -44,8 +42,7 @@ The project loads some pre-defined data in to an in-memory database, which is ac
 no need to create persistent storage.
 
 
-Submission
-==========
+# Submission
 
 Please provide your version of this project as a git repository (e.g. Github, BitBucket, etc).
 

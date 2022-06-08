@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Cake Manger: Home</title>
+    <!--/*/ <th:block th:include="template.html :: headerfiles">
+        </th:block> /*/-->
+</head>
+<body>
+    <div class="container">
+        <div class="center-block">
+            <div th:insert="template.html :: header"> </div>
+
+            <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert" />
+
+            <div class="jumbotron">
+                <h1>Cake Manager</h1>
+                <p class="lead">This is the frontend to an example spring boot mvc application.</p>
+                <p><a class="btn btn-lg btn-success" href="/addcake" role="button">Try adding a cake</a></p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="media-list">
+                        <li th:each="cake: ${col1}" class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" th:src="${cake.image}" height="64" width="64" th:alt="${cake.title}" data-src="holder.js/64x64">
+                            </a>
+                            <div class="media-body">
+                                <div class="media-body">
+                                    <h4 th:text="${cake.title}" class="media-heading" />
+                                    <div th:text="${cake.description}" class="media" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="media-list">
+                        <li th:each="cake: ${col2}" class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" th:src="${cake.image}" height="64" width="64" th:alt="${cake.title}" data-src="holder.js/64x64">
+                            </a>
+                            <div class="media-body">
+                                <div class="media-body">
+                                    <h4 th:text="${cake.title}" class="media-heading" />
+                                    <div th:text="${cake.description}" class="media" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <div th:replace="template.html :: footer"></div>
+        </div>
+    </div>
+</body>
+</html>
