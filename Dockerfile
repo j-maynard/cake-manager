@@ -1,8 +1,10 @@
+FROM maven:3.8.5-eclipse-temurin-17 AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+
 FROM openjdk:17
-ARG github-client-id
-ARG github-client-secret
-COPY ./target/cakemgr-0.0.1-SNAPSHOT.jar .
-ENV GITHUB_CLIENT_ID $github-client-id
-ENV GITHUB_CLIENT_SECRET $github-client-secret
-CMD ["java", "-jar", "./cakemgr-0.0.1-SNAPSHOT.jar"]
+COPY --from=build /home/app/target/cakemgr-0.0.1-SNAPSHOT.jar /usr/local/lib/cakemgr-0.0.1-SNAPSHOT.jar
 EXPOSE 8282
+ENTRYPOINT ["java","-jar","/usr/local/lib/cakemgr-0.0.1-SNAPSHOT.jar"]
